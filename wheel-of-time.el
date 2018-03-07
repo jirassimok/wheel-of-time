@@ -63,9 +63,9 @@ The other direction will be used for redo." ; possibly add redo-up and redo-down
 (defvar wheel-of-time-map nil "Keymap for ‘wheel-of-time-mode’.")
 (unless wheel-of-time-map
   (let ((map (make-sparse-keymap)))
-	(define-key map [wheel-down] 'wheel-of-time-down)
-	(define-key map [wheel-up] 'wheel-of-time-up)
-	(setq wheel-of-time-map map)))
+    (define-key map [wheel-down] 'wheel-of-time-down)
+    (define-key map [wheel-up] 'wheel-of-time-up)
+    (setq wheel-of-time-map map)))
 
 
 ;;; Functions
@@ -75,16 +75,16 @@ The other direction will be used for redo." ; possibly add redo-up and redo-down
 of ‘wheel-of-time-direction’."
   (interactive)
   (cond ((eq wheel-of-time-direction 'undo-up) (undo-tree-undo))
-		((eq wheel-of-time-direction 'undo-down) (undo-tree-redo))
-		(t (error "Invalid value for wheel-of-time-direction."))))
+        ((eq wheel-of-time-direction 'undo-down) (undo-tree-redo))
+        (t (error "Invalid value for wheel-of-time-direction."))))
 
 (defun wheel-of-time-down ()
   "Calls either ‘undo-tree-redo’ or ‘undo-tree-undo’, depending on the value
 of ‘wheel-of-time-direction’."
   (interactive)
   (cond ((eq wheel-of-time-direction 'undo-up) (undo-tree-redo))
-		((eq wheel-of-time-direction 'undo-down) (undo-tree-undo))
-		(t (error "Invalid value for wheel-of-time-direction."))))
+        ((eq wheel-of-time-direction 'undo-down) (undo-tree-undo))
+        (t (error "Invalid value for wheel-of-time-direction."))))
 
 
 ;;; The Mode Itself
